@@ -282,7 +282,7 @@
                     <li class="nav-item"><a class="nav-link active" href="T4LIFE.php">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Collection</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Contact.php">Contact</a></li>
                 </ul>
 
                 <form class="d-flex me-3">
@@ -348,9 +348,9 @@
                     <div class="col-lg-4 text-center mb-4">
                         <h5 class="information-title">Information</h5>
                         <ul class="information list-unstyled">
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="Contact.php">Contact</a></li>
                             <li><a href="#">About Us</a></li>
-                            <li><a href="#">FAQ</a></li>
+                            <li><a href="FAQ.php">FAQ</a></li>
                             <li><a href="#">Track Order</a></li>
                         </ul>
                     </div>
@@ -374,3 +374,5 @@
 </body>
 
 </html>
+
+
