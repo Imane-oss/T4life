@@ -18,12 +18,11 @@
             --dark-bg: #212529;
         }
 
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fa;
+         body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            background-color: #fff;
+            overflow-x: hidden;
         }
 
         /* --- Top Bar --- */
@@ -36,21 +35,60 @@
         }
 
         /* --- Navbar Styles --- */
+         /* --- Navbar Styles --- */
         .navbar-brand {
             font-weight: bold;
             font-size: 1.5rem;
             color: var(--primary-color) !important;
         }
-
+        
         .search-input {
-            border-radius: 20px 0 0 20px;
-            border: 1px solid #ced4da;
+            width: 100%;
+            padding: 12px 20px 12px 45px;
+            border-radius: 24px;
+            border: 1px solid #e0e0e0;
+            background-color: #f0f0f0;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
         }
-
         .search-btn {
             border-radius: 0 20px 20px 0;
             padding: 0 15px;
         }
+
+    .search-container {
+            max-width: 600px;
+            width: 100%;
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 12px 20px 12px 45px;
+            border-radius: 24px;
+            border: 1px solid #e0e0e0;
+            background-color: #f0f0f0;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .search-input:focus {
+            background-color: white;
+            border-color: #ccc;
+            box-shadow: 0 0 0 4px rgba(0,0,0,0.05);
+            outline: none;
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+        }
+        
 
         .navbar {
             box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
@@ -160,6 +198,7 @@
         }
 
         .btn-signup:hover {
+            color: #fff;
             background-color: #333;
             border-color: #333;
             transform: translateY(-2px);
@@ -281,15 +320,14 @@
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link active" href="T4LIFE.php">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Collection</a></li>
+                    <li class="nav-item"><a class="nav-link" href="collection.php">Collection</a></li>
                     <li class="nav-item"><a class="nav-link" href="Contact.php">Contact</a></li>
                 </ul>
 
-                <form class="d-flex me-3">
+                 <form class="d-flex me-3">
                     <div class="input-group">
                         <input class="form-control search-input" type="search" placeholder="Search items...">
-                        <button class="btn btn-outline-dark search-btn" type="button"><i
-                                class="bi bi-search"></i></button>
+                        <button class="btn btn-outline-dark search-btn" type="button"><i class="bi bi-search"></i></button>
                     </div>
                 </form>
 

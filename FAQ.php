@@ -1,21 +1,19 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ Professionnelle</title>
+<?php
+ob_start();
+?>
+
     <style>
         /* --- CSS: Design o Styling --- */
         :root {
-            --primary-color: #2c3e50; /* Loun kahl (Dark Blue) */
-            --accent-color: #3498db;  /* Loun zar9a (Blue) */
-            --bg-color: #f8f9fa;      /* Loun l5alfiya */
+            --primary-color: #2c3e50; 
+            --accent-color: #01090f;  
+            --bg-color: #c0c9d261;      
             --text-color: #333;
             --border-radius: 8px;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
@@ -43,7 +41,7 @@
         }
 
         .faq-header p {
-            color: #666;
+            color: #575555;
         }
 
         /* Styling dyal details o summary */
@@ -74,27 +72,61 @@
         }
 
         /* Icon + bach tbdel */
+        details {
+            margin-bottom: 15px;
+            border: 1px solid #eee;
+            border-radius: var(--border-radius);
+            background: #fff;
+            transition: all 0.2s ease;
+        }
+
+        details:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-color: #ccc;
+        }
+
+        details[open] {
+            border-left: 4px solid var(--primary-color); /* Indicateur dyal selection */
+        }
+
+        summary {
+            padding: 18px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.05rem;
+        }
+
+        /* Ikon + */
         summary::after {
             content: '+';
-            font-size: 24px;
-            color: var(--accent-color);
-            transition: transform 0.3s ease;
+            font-size: 20px;
+            color: #888;
+            transition: transform 0.2s;
         }
 
         details[open] summary::after {
-            transform: rotate(45deg); /* Ywli - ila tet7el */
+            transform: rotate(45deg);
+            color: var(--primary-color);
         }
 
         details[open] summary {
-            border-bottom: 1px solid #eee;
+            color: var(--primary-color);
             background-color: #fafafa;
+            border-bottom: 1px solid #eee;
         }
 
-        .faq-content {
+         .faq-content {
             padding: 20px;
             color: #555;
-            animation: fadeIn 0.5s ease;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
+
+        
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-10px); }
@@ -107,9 +139,29 @@
                 padding: 20px;
             }
         }
+
+    .cta-footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid #eee;
+        }
+        .btn-contact {
+            display: inline-block;
+            background-color: #0c0d0dc6;
+            color: #fff;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .btn-contact:hover {
+            background-color: #3c3f3fc6;
+        }
+
     </style>
-</head>
-<body>
+
 
     <div class="faq-container">
         <div class="faq-header">
@@ -119,45 +171,52 @@
 
         <!-- Item 1 -->
         <details>
-            <summary>Quels sont vos modes de paiement acceptés ?</summary>
+            <summary>What payment methods do you accept?</summary>
             <div class="faq-content">
-                Nous acceptons les paiements par carte bancaire (Visa, MasterCard), PayPal ainsi que le paiement à la livraison pour certaines localités. Toutes les transactions sont sécurisées.
+               We accept payments by credit card (Visa, MasterCard), PayPal, and cash on delivery in certain areas. All transactions are secure.
             </div>
         </details>
 
         <!-- Item 2 -->
         <details>
-            <summary>Comment se passe la garantie des produits ?</summary>
+            <summary>Comment that passes the product guarantee?</summary>
             <div class="faq-content">
-                Tous nos produits bénéficient d'une garantie légale de conformité de 1 an. En cas de défaut de fabrication, vous pouvez nous retourner le produit pour un échange ou un remboursement complet.
+                All our products come with a 1-year legal guarantee of conformity. In the event of a manufacturing defect, you can return the product for an exchange or a full refund.
             </div>
         </details>
 
         <!-- Item 3 -->
         <details>
-            <summary>Puis-je annuler ma commande après validation ?</summary>
+            <summary>Can I cancel my order after it has been validated?</summary>
             <div class="faq-content">
-                Oui, vous disposez d'un délai de 2 heures après la validation pour annuler votre commande. Passé ce délai, veuillez contacter notre service client pour vérifier l'état d'expédition.
+               Yes, you have 2 hours after confirmation to cancel your order. After this time, please contact our customer service to check the shipping status.
             </div>
         </details>
 
         <!-- Item 4 -->
         <details>
-            <summary>Quels sont les délais de livraison ?</summary>
+            <summary>What are the delivery times?</summary>
             <div class="faq-content">
-                Les délais de livraison varient entre 24h et 72h selon votre ville de résidence. Vous recevrez un numéro de suivi par SMS et email dès l'expédition de votre colis.
+                Delivery times vary between 24 and 72 hours depending on your city of residence. You will receive a tracking number by SMS and email as soon as your package is shipped.
             </div>
         </details>
 
         <!-- Item 5 -->
         <details>
-            <summary>Mes données personnelles sont-elles sécurisées ?</summary>
+            <summary>Are my personal data secure?</summary>
             <div class="faq-content">
-                Absolument. Nous nous engageons à respecter la réglementation en vigueur regarding la protection des données personnelles. Vos informations ne seront jamais revendues à des tiers.
+                Absolutely. We are committed to complying with all applicable regulations regarding the protection of personal data. Your information will never be sold to third parties.
             </div>
         </details>
 
     </div>
+     <!-- btn-contact -->
+       <div class="cta-footer">
+            <p>Didn't find an answer to your question?</p>
+            <a href="Contact.php" class="btn-contact">Contact Customer Service</a>
+        </div>
 
-</body>
-</html>
+<?php
+$content = ob_get_clean();
+include_once 'layout.php';
+?>

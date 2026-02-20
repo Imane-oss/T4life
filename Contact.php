@@ -3,23 +3,48 @@ session_start();
 require_once 'connection.php';
 $customer_id = $_SESSION['customer_id'] ?? null;
 
+$errors = [];
+
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    $name = htmlspecialchars($_POST['name']);
-    $email = htmlspecialchars($_POST['email']);
-    $phone = htmlspecialchars($_POST['phone'] ?? '');
-    $message = htmlspecialchars($_POST['message']);
+    $name = trim($_POST['name']);
+    $email = trim($_POST['email']);
+    $phone = trim($_POST['phone'] ?? '');
+    $message = trim($_POST['message']);
     $subject = "Contact Form Message";
 
-    $stmt = $conn->prepare("INSERT INTO ContactMessages (customer_id, name, email, subject, message) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("issss", $customer_id, $name, $email, $subject, $message);
-
-    if($stmt->execute()){
-        echo "<script>alert('Message sent successfully!'); window.location.href='contact.php';</script>";
-    } else {
-        echo "<script>alert('Error sending message.'); window.history.back();</script>";
+    // ===================== Validation =====================
+    if(strlen($name) > 30){
+        $errors[] = "Name cannot exceed 30 characters.";
     }
 
-    $stmt->close();
+    if(strlen($message) > 500){
+        $errors[] = "Message cannot exceed 500 characters.";
+    }
+
+    if(!filter_var($email, FILTER_VALIDATE_EMAIL) || !str_ends_with($email, "@gmail.com")){
+        $errors[] = "Please enter a valid Gmail address.";
+    }
+
+    // ===================== If no errors, insert =====================
+    if(empty($errors)){
+        $name = htmlspecialchars($name);
+        $email = htmlspecialchars($email);
+        $phone = htmlspecialchars($phone);
+        $message = htmlspecialchars($message);
+
+        $stmt = $conn->prepare("INSERT INTO ContactMessages (customer_id, name, email, subject, message) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("issss", $customer_id, $name, $email, $subject, $message);
+
+        if($stmt->execute()){
+            header("Location: T4LIFE.php?success=1");
+            exit();
+        } else {
+            $errors[] = "Error sending message.Please try again";
+        }
+
+        $stmt->close();
+    }
+
     $conn->close();
 }
 
