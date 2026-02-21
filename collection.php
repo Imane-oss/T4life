@@ -17,26 +17,7 @@ if (isset($conn) && $conn) {
         $products_data[] = $row;
     }
     
-} else {
-     
-}
-    // Dummy data pour tester si pas de base de données connectée
-    $categories_data = [
-        ['category_id' => 1, 'name' => "Women's Jeans", 'image' => 'https://picsum.photos/seed/wjeans/400/500'],
-        ['category_id' => 2, 'name' => "Women's T-shirts", 'image' => 'https://picsum.photos/seed/wtshirt/400/500'],
-        ['category_id' => 3, 'name' => "Women's Sweaters", 'image' => 'https://picsum.photos/seed/wsweater/400/500'],
-        ['category_id' => 4, 'name' => "Women's Loafers&Slip-Ons", 'image' => 'https://picsum.photos/seed/wshoes/400/500'],
-        ['category_id' => 5, 'name' => "Men's T-shirts", 'image' => 'https://picsum.photos/seed/mtshirt/400/500'],
-        ['category_id' => 6, 'name' => "Men's Jeans", 'image' => 'https://picsum.photos/seed/mjeans/400/500'],
-        ['category_id' => 7, 'name' => "Men's Sweaters", 'image' => 'https://picsum.photos/seed/msweater/400/500'],
-        ['category_id' => 8, 'name' => "Men's Shoes", 'image' => 'https://picsum.photos/seed/mshoes/400/500'],
-    ];
-    $products_data = [
-        ['product_id' => 1, 'name' => "Blue Denim Jeans", 'price' => 200, 'category_id' => 1, 'image' => 'https://picsum.photos/seed/prod1/400/400'],
-        ['product_id' => 2, 'name' => "Classic White Tee", 'price' => 150, 'category_id' => 2, 'image' => 'https://picsum.photos/seed/prod2/400/400'],
-        ['product_id' => 3, 'name' => "Mens Hoodie", 'price' => 300, 'category_id' => 7, 'image' => 'https://picsum.photos/seed/prod3/400/400'],
-    ];
-}
+} 
 ob_start();
 ?>
 
